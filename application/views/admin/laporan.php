@@ -9,7 +9,7 @@
     <div class="row mx-3">
         <div class="col">
             <a href="" class="btn btn-primary my-3 font-weight-bold" data-toggle="modal" data-target="#tambahlabModal">Form Input Pekerjaan</a>
-            <a href="<?= base_url(''); ?>" class="btn btn-success my-3 font-weight-bold"><i class="fas fa-print"></i></a>
+            <a href="<?= base_url('admin/print_laporan'); ?>" class="btn btn-success my-3 font-weight-bold"><i class="fas fa-print"></i></a>
             <br>
             <?= form_error('menu', '<small class="text-danger">', '</small>'); ?>
             <?= $this->session->flashdata('pesan'); ?>

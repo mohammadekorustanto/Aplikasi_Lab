@@ -21,6 +21,11 @@ class Admin_model extends CI_Model
 
         return $this->db->get('laporan_pekerjaan')->result_array();
     }
+    public function getLaporanById($id)
+    {
+
+        return $this->db->get_where('laporan_pekerjaan', ['id' => $id])->row_array();
+    }
     public function tambahLaporan()
     {
         $data = [
@@ -30,6 +35,19 @@ class Admin_model extends CI_Model
         $this->db->insert('laporan_pekerjaan', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                  Data berhasil ditambahkan
+                 </div>');
+        redirect('admin/laporan');
+    }
+    public function editLaporan($id)
+    {
+        $data = [
+            'hari' => htmlspecialchars($this->input->post('hari', true)),
+            'pekerjaan' => htmlspecialchars($this->input->post('pekerjaan', true))
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('laporan_pekerjaan', $data);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+                 Data berhasil diubah
                  </div>');
         redirect('admin/laporan');
     }

@@ -36,14 +36,19 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');
     }
+    public function print_laporan()
+    {
+        $data['laporan'] = $this->Admin_model->getAllLaporan();
+        $this->load->view('admin/print', $data);
+    }
 
     public function laporan()
     {
         $data['user'] = $this->Guru_model->getGuru();
         // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
         $data['judul'] = 'Laboratorium Astrindo Kota Tegal';
-        $data['sidebar'] = 'Laporan Pekerjaan';
         $data['laporan'] = $this->Admin_model->getAllLaporan();
+        $data['sidebar'] = 'Laporan Pekerjaan';
         $this->form_validation->set_rules('hari', 'Hari Tanggal', 'required|trim', [
             'required' => 'Hari Tanggal harus diisi'
         ]);
@@ -58,6 +63,30 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Admin_model->tambahLaporan();
+        }
+    }
+    public function ubah_laporan($id)
+    {
+        $data['user'] = $this->Guru_model->getGuru();
+        // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
+        $data['judul'] = 'Laboratorium Astrindo Kota Tegal';
+        $data['sidebar'] = 'Edit Laporan';
+        $data['edit'] = $this->Admin_model->getLaporanById($id);
+        $data['laporan'] = $this->Admin_model->getAllLaporan();
+        $this->form_validation->set_rules('hari', 'Hari Tanggal', 'required|trim', [
+            'required' => 'Hari Tanggal harus diisi'
+        ]);
+        $this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required|trim', [
+            'required' => 'pekerjaan harus diisi'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/ubah_laporan', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Admin_model->editLaporan($id);
         }
     }
 }
