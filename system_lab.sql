@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Okt 2022 pada 09.31
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Generation Time: Nov 14, 2022 at 04:40 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `laporan_pekerjaan`
+-- Table structure for table `laporan_pekerjaan`
 --
 
 CREATE TABLE `laporan_pekerjaan` (
@@ -33,10 +33,20 @@ CREATE TABLE `laporan_pekerjaan` (
   `pekerjaan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `laporan_pekerjaan`
+--
+
+INSERT INTO `laporan_pekerjaan` (`id`, `hari`, `pekerjaan`) VALUES
+(4, 'Senin,14 november 2022', 'membersihkan lab'),
+(5, '', 'menyiapkan proyektor untuk kbm'),
+(6, '', 'mengganti Ram komputer bu ilma TU'),
+(7, '', 'mengganti monitor komputer pa rico TU');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemakaian_lab`
+-- Table structure for table `pemakaian_lab`
 --
 
 CREATE TABLE `pemakaian_lab` (
@@ -46,15 +56,13 @@ CREATE TABLE `pemakaian_lab` (
   `jam` varchar(128) NOT NULL,
   `guru_pengampuh` varchar(128) NOT NULL,
   `lab` varchar(128) NOT NULL,
-  `kondisi_awal_pembelajaran` varchar(128) NOT NULL,
-  `kondisi_saat_pembelajaran` varchar(128) NOT NULL,
-  `kondisi_akhir_pembelajaran` varchar(128) NOT NULL
+  `materi` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -66,7 +74,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `mapel`, `password`, `role_id`) VALUES
@@ -79,7 +87,7 @@ INSERT INTO `user` (`id`, `nama`, `mapel`, `password`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -89,7 +97,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -101,7 +109,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -110,7 +118,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -121,7 +129,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -130,7 +138,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -140,7 +148,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menu`
+-- Table structure for table `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -153,7 +161,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_sub_menu`
+-- Dumping data for table `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -169,89 +177,89 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 --
 
 --
--- Indeks untuk tabel `laporan_pekerjaan`
+-- Indexes for table `laporan_pekerjaan`
 --
 ALTER TABLE `laporan_pekerjaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pemakaian_lab`
+-- Indexes for table `pemakaian_lab`
 --
 ALTER TABLE `pemakaian_lab`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_sub_menu`
+-- Indexes for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `laporan_pekerjaan`
+-- AUTO_INCREMENT for table `laporan_pekerjaan`
 --
 ALTER TABLE `laporan_pekerjaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `pemakaian_lab`
+-- AUTO_INCREMENT for table `pemakaian_lab`
 --
 ALTER TABLE `pemakaian_lab`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
+-- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;

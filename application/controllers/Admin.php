@@ -49,9 +49,6 @@ class Admin extends CI_Controller
         $data['judul'] = 'Laboratorium Astrindo Kota Tegal';
         $data['laporan'] = $this->Admin_model->getAllLaporan();
         $data['sidebar'] = 'Laporan Pekerjaan';
-        $this->form_validation->set_rules('hari', 'Hari Tanggal', 'required|trim', [
-            'required' => 'Hari Tanggal harus diisi'
-        ]);
         $this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required|trim', [
             'required' => 'pekerjaan harus diisi'
         ]);

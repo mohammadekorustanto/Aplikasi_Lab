@@ -16,6 +16,23 @@ class Guru extends CI_Controller
         $data['user'] = $this->Guru_model->getGuru();
         // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
         $data['judul'] = 'Lab TKJ Astrindo Kota Tegal 75';
+
+
+        $data['sidebar'] = 'Data Pemakaian Lab';
+        // $data['guru'] = $this->Guru_model->getGuruBy();
+        $data['lab'] = $this->Guru_model->getAllLab();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('lab/index', $data);
+        $this->load->view('templates/footer');
+    }
+    public function tambah_pemakai()
+    {
+        $data['user'] = $this->Guru_model->getGuru();
+        // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
+        $data['judul'] = 'Lab TKJ Astrindo Kota Tegal 75';
         $data['kelas'] = [
             'X TKJ 1', 'X TKJ 2', 'X TKJ 3', 'X MM 1', 'X AKL 1', 'X TKRO 1', 'X TKRO 2', 'X TKRO 3',
             'XI TKJ 1', 'XI TKJ 2', 'XI MM 1', 'XI AKL 1', 'XI TKRO 1', 'XI TKRO 2', 'XI TKRO 3',
@@ -59,7 +76,7 @@ class Guru extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('lab/index', $data);
+            $this->load->view('lab/tambah_pemakai', $data);
             $this->load->view('templates/footer');
         } else {
             $this->Guru_model->TambahPemakaianLab();

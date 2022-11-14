@@ -17,18 +17,16 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">No</th>
                             <th scope="col">Hari/Tanggal</th>
                             <th scope="col">Pekerjaan</th>
                             <th scope="col" colspan="2">Ubah/Hapus</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $n = 1;
+                        <?php
                         foreach ($laporan as $l) : ?>
                             <tr>
-                                <th scope="row"><?= $n++; ?></th>
-                                <td><?= $l['hari']; ?></td>
+                                <th scope="row"><?= $l['hari']; ?></th>
                                 <td><?= $l['pekerjaan']; ?></td>
                                 <td>
                                     <a href="<?= base_url('admin/ubah_laporan/'); ?><?= $l['id']; ?>" class="badge badge-warning">

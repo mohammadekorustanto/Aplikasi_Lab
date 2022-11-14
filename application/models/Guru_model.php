@@ -23,19 +23,19 @@ class Guru_model extends CI_Model
     public function TambahPemakaianLab()
     {
         $data = [
+            // 'id' => htmlspecialchars($this->input->post('id', true)),
             'hari' => htmlspecialchars($this->input->post('hari', true)),
             'kelas' => htmlspecialchars($this->input->post('kelas', true)),
             'jam' => htmlspecialchars($this->input->post('jam', true)),
-            'guru_pengampuh' => htmlspecialchars($this->input->post('guru_pengampuh', true)),
+            'guru_pengampuh' => htmlspecialchars($this->input->post('user', true)),
             'lab' => htmlspecialchars($this->input->post('lab', true)),
-            'kondisi_awal_pembelajaran' => htmlspecialchars($this->input->post('kondisi_awal_pembelajaran', true)),
-            'kondisi_saat_pembelajaran' => htmlspecialchars($this->input->post('kondisi_saat_pembelajaran', true)),
-            'kondisi_akhir_pembelajaran' => htmlspecialchars($this->input->post('kondisi_akhir_pembelajaran', true)),
+            'materi' => htmlspecialchars($this->input->post('materi', true)),
         ];
-        $this->db->insert('pemakaian_lab', $data);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                 Data berhasil dimasukan...
-                 </div>');
-        redirect('guru/pakai');
+        var_dump($data);
+        // $this->db->insert('pemakaian_lab', $data);
+        // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+        //          Data berhasil dimasukan...
+        //          </div>');
+        // redirect('guru/pakai');
     }
 }
