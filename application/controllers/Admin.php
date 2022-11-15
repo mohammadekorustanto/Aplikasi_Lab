@@ -70,9 +70,6 @@ class Admin extends CI_Controller
         $data['sidebar'] = 'Edit Laporan';
         $data['edit'] = $this->Admin_model->getLaporanById($id);
         $data['laporan'] = $this->Admin_model->getAllLaporan();
-        $this->form_validation->set_rules('hari', 'Hari Tanggal', 'required|trim', [
-            'required' => 'Hari Tanggal harus diisi'
-        ]);
         $this->form_validation->set_rules('pekerjaan', 'pekerjaan', 'required|trim', [
             'required' => 'pekerjaan harus diisi'
         ]);

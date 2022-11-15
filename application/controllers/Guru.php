@@ -30,7 +30,7 @@ class Guru extends CI_Controller
     }
     public function tambah_pemakai()
     {
-        $data['user'] = $this->Guru_model->getGuru();
+        $data['user'] = $this->Guru_model->Getguru();
         // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
         $data['judul'] = 'Lab TKJ Astrindo Kota Tegal 75';
         $data['kelas'] = [
@@ -45,8 +45,8 @@ class Guru extends CI_Controller
         ];
 
         $data['sidebar'] = 'Data Pemakaian Lab';
-        // $data['guru'] = $this->Guru_model->getGuruBy();
-        $data['lab'] = $this->Guru_model->getAllLab();
+        // $data['guru'] = $this->Guru_model->Getguru($id);
+        // $data['lab'] = $this->Guru_model->getAllLab();
         // $data['guru'] = 
         $this->form_validation->set_rules('hari', 'Hari', 'required|trim', [
             'required' => 'Hari harus diisi'
@@ -57,21 +57,16 @@ class Guru extends CI_Controller
         $this->form_validation->set_rules('jam', 'jam', 'required|trim', [
             'required' => 'Jam harus diisi'
         ]);
-        $this->form_validation->set_rules('guru_pengampuh', 'Guru Pengampuh', 'required|trim', [
+        $this->form_validation->set_rules('user', 'user', 'required|trim', [
             'required' => 'Guru Pengampuh harus diisi'
         ]);
         $this->form_validation->set_rules('lab', 'Laboratorium', 'required|trim', [
             'required' => 'Laboratorium harus diisi'
         ]);
-        $this->form_validation->set_rules('kondisi_awal_pembelajaran', 'Kondisi Awal Pembelajaran', 'required|trim', [
-            'required' => 'Kondisi Awal Pembelajaran harus diisi'
+        $this->form_validation->set_rules('meteri', 'Materi', 'required|trim', [
+            'required' => 'Materi harus diisi'
         ]);
-        $this->form_validation->set_rules('kondisi_saat_pembelajaran', 'Kondisi Saat Pembelajaran', 'required|trim', [
-            'required' => 'Kondisi Saat Pembelajaran harus diisi'
-        ]);
-        $this->form_validation->set_rules('kondisi_akhir_pembelajaran', 'Kondisi Akhir Pembelajaran', 'required|trim', [
-            'required' => 'Kondisi Akhir Pembelajaran harus diisi'
-        ]);
+
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);

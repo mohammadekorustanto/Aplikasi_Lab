@@ -9,7 +9,7 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <form action="" method="post">
-                <input type="hidden" name="id">
+                <input type="hidden" name="id" value="<?= $edit['id']; ?>">
                 <div class="form-group">
                     <input type="text" class="form-control" name="hari" value="<?= $edit['hari']; ?>">
                 </div>

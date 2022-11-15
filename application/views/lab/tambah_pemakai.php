@@ -9,7 +9,6 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <form action="<?= base_url('guru/tambah_pemakai'); ?>" method="post">
-                <input type="hidden" name="id" value="<?= $user['id']; ?>">
                 <div class="form-group">
                     <input type="text" class="form-control" name="hari" autofocus placeholder="Hari" autocomplete="off">
                 </div>

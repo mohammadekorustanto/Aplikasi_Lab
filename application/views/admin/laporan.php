@@ -65,10 +65,10 @@
             <form action="<?= base_url('admin/laporan'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" name="hari" placeholder="Hari?tanggal" class="form-control">
+                        <input type="text" name="hari" placeholder="Hari/tanggal" class="form-control">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="pekerjaan" id="exampleFormControlTextarea1" rows="3" placeholder="Pekerjaan"></textarea>
+                        <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
                     </div>
                 </div>
                 <div class="modal-footer">

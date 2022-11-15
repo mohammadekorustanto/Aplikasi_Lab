@@ -31,11 +31,11 @@ class Guru_model extends CI_Model
             'lab' => htmlspecialchars($this->input->post('lab', true)),
             'materi' => htmlspecialchars($this->input->post('materi', true)),
         ];
-        var_dump($data);
-        // $this->db->insert('pemakaian_lab', $data);
-        // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-        //          Data berhasil dimasukan...
-        //          </div>');
-        // redirect('guru/pakai');
+        // var_dump($data);
+        $this->db->insert('pemakaian_lab', $data);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
+                 Data berhasil dimasukan...
+                 </div>');
+        redirect('guru/pakai');
     }
 }
