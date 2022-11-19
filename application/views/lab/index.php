@@ -8,10 +8,9 @@
     </div>
     <div class="row mx-3">
         <div class="col">
-            <a href="<?= base_url('guru/tambah_pemakai'); ?>" class="btn btn-primary font-weight-bold"><i class="fas fa-plus"> Form Tambah</i></a>
+            <a href="<?= base_url('guru/tambah_pemakaian'); ?>" class="btn btn-primary font-weight-bold"><i class="fas fa-plus"> Form Tambah</i></a>
             <a href="<?= base_url('guru/print_pakai'); ?>" class="btn btn-success my-3 font-weight-bold"><i class="fas fa-print"> Print</i></a>
             <br>
-            <?= form_error('menu', '<small class="text-danger">', '</small>'); ?>
             <?= $this->session->flashdata('pesan'); ?>
             <div class="table-responsive">
                 <table class="table table-bordered">

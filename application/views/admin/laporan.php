@@ -16,7 +16,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="thead-dark">
-                        <tr>
+                        <tr class="text-center">
                             <th scope="col">Hari/Tanggal</th>
                             <th scope="col">Pekerjaan</th>
                             <th scope="col" colspan="2">Ubah/Hapus</th>
@@ -29,10 +29,12 @@
                                 <th scope="row"><?= $l['hari']; ?></th>
                                 <td><?= $l['pekerjaan']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/ubah_laporan/'); ?><?= $l['id']; ?>" class="badge badge-warning">
+                                    <a href="<?= base_url('admin/ubah_laporan/'); ?><?= $l['id']; ?>" class="btn btn-warning">
                                         <i class="fas fa-edit"> Ubah</i>
                                     </a>
-                                    <a href="<?= base_url('admin/hapus_laporan/'); ?><?= $l['id']; ?>" class="badge badge-danger">
+                                </td>
+                                <td>
+                                    <a href="<?= base_url('admin/hapus_laporan/'); ?><?= $l['id']; ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"> Hapus</i>
                                     </a>
                                 </td>

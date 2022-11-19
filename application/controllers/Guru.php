@@ -28,45 +28,39 @@ class Guru extends CI_Controller
         $this->load->view('lab/index', $data);
         $this->load->view('templates/footer');
     }
-    public function tambah_pemakai()
+    public function tambah_pemakaian()
     {
-        $data['user'] = $this->Guru_model->Getguru();
-        // $data['user'] = $this->db->get_where('user', ['nama' => $this->session->userdata('nama')])->row_array();
-        $data['judul'] = 'Lab TKJ Astrindo Kota Tegal 75';
+        $data['judul'] = 'Lab TKJ SMK Astrindo 75';
+        $data['sidebar'] = 'Form Tambah Pemakaian Lab';
         $data['kelas'] = [
-            'X TKJ 1', 'X TKJ 2', 'X TKJ 3', 'X MM 1', 'X AKL 1', 'X TKRO 1', 'X TKRO 2', 'X TKRO 3',
-            'XI TKJ 1', 'XI TKJ 2', 'XI MM 1', 'XI AKL 1', 'XI TKRO 1', 'XI TKRO 2', 'XI TKRO 3',
-            'XII TKJ 1', 'XII TKJ 2', 'XII MM 1', 'XII AKL 1', 'XII TKRO 1', 'XII TKRO 2', 'XII TKRO 3'
+            'X TKJ 1', 'X TKJ 2', 'X TKJ 3',
+            'XI TKJ 1',
+            'XII TKJ 1', 'XII TKJ 2'
         ];
         $data['jam'] = [
             'Pertama',
             'Kedua',
             'Ketiga'
         ];
-
-        $data['sidebar'] = 'Data Pemakaian Lab';
-        // $data['guru'] = $this->Guru_model->Getguru($id);
-        // $data['lab'] = $this->Guru_model->getAllLab();
-        // $data['guru'] = 
-        $this->form_validation->set_rules('hari', 'Hari', 'required|trim', [
-            'required' => 'Hari harus diisi'
+        $data['user'] = $this->Guru_model->getGuru();
+        $this->form_validation->set_rules('hari', 'Hari/Tanggal', 'required|trim', [
+            'required' => 'Hari/Tanggal harus diisi'
         ]);
         $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim', [
             'required' => 'Kelas harus diisi'
         ]);
-        $this->form_validation->set_rules('jam', 'jam', 'required|trim', [
+        $this->form_validation->set_rules('jam', 'Jam', 'required|trim', [
             'required' => 'Jam harus diisi'
         ]);
-        $this->form_validation->set_rules('user', 'user', 'required|trim', [
+        $this->form_validation->set_rules('guru_pengampuh', 'Guru Pengampuh', 'required|trim', [
             'required' => 'Guru Pengampuh harus diisi'
         ]);
-        $this->form_validation->set_rules('lab', 'Laboratorium', 'required|trim', [
-            'required' => 'Laboratorium harus diisi'
+        $this->form_validation->set_rules('lab', 'Lab', 'required|trim', [
+            'required' => 'Lab harus diisi'
         ]);
-        $this->form_validation->set_rules('meteri', 'Materi', 'required|trim', [
+        $this->form_validation->set_rules('materi', 'Materi', 'required|trim', [
             'required' => 'Materi harus diisi'
         ]);
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -77,6 +71,7 @@ class Guru extends CI_Controller
             $this->Guru_model->TambahPemakaianLab();
         }
     }
+
     public function print_pakai()
     {
         $data['user'] = $this->Guru_model->getGuru();

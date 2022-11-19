@@ -2,15 +2,15 @@
 <div class="container-fluid">
 
     <div class="row my-3">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <h3 class="font-weight-bold"><?= $sidebar; ?></h3>
         </div>
     </div>
-    <div class="row mb-3">
+    <div class="row mt-3">
         <div class="col-md-6">
-            <form action="<?= base_url('guru/tambah_pemakai'); ?>" method="post">
+            <form action="<?= base_url('guru/tambah_pemakaian'); ?>" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="hari" autofocus placeholder="Hari" autocomplete="off">
+                    <input type="text" name="hari" placeholder="Hari/Tanggal" autofocus autocomplete="off" class="form-control">
                 </div>
                 <div class="form-group">
                     <select name="kelas" id="" class="form-control">
@@ -21,7 +21,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select name="kelas" id="" class="form-control">
+                    <select name="jam" id="" class="form-control">
                         <option value="">Jam Ke</option>
                         <?php foreach ($jam as $j) : ?>
                             <option value="<?= $j; ?>"><?= $j; ?></option>
@@ -29,16 +29,16 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="user" value="<?= $user['nama']; ?>" autocomplete="off">
+                    <input type="text" name="guru_pengampuh" value="<?= $user['nama']; ?>" autocomplete="off" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="lab" placeholder="Laboratorium" autocomplete="off">
+                    <input type="text" name="lab" placeholder="Lab" autocomplete="off" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="materi" placeholder="Materi" autocomplete="off">
+                    <input type="text" name="materi" placeholder="Materi" autocomplete="off" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary font-weight-bold">Simpan</button>
-                <a href="<?= base_url('guru/pakai'); ?>" class="btn btn-danger font-weight-bold">Batal</a>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="<?= base_url('guru/pakai'); ?>" class="btn btn-danger">Batal</a>
             </form>
         </div>
     </div>
