@@ -17,6 +17,7 @@
         <div class="row mt-3 text-center">
             <div class="col">
                 <h1>Laporan Pemakaian Laboratorium</h1>
+                <h3>Teknik Komputer Jaringan</h3>
                 <h4>SMK ASTRINDO KOTA TEGAL</h4>
             </div>
         </div>
@@ -25,49 +26,30 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Hari/Tanggal</th>
+                            <th scope="col">Hari</th>
+                            <th scope="col">Tanggal</th>
                             <th scope="col">Kelas</th>
                             <th scope="col">Jam Pelajaran</th>
                             <th scope="col">Guru Pengampuh</th>
                             <th scope="col">Laboratorium</th>
-                            <th scope="col">Kondisi Awal KBM</th>
-                            <th scope="col">Kondisi Saat KBM</th>
-                            <th scope="col">Kondisi Akhir KBM</th>
+                            <th scope="col">Materi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $n = 1;
                         foreach ($pakai as $p) : ?>
                             <tr>
-                                <th scope="row"><?= $n++; ?></th>
                                 <td><?= $p['hari']; ?></td>
+                                <td><?= $p['tanggal']; ?></td>
                                 <td><?= $p['kelas']; ?></td>
                                 <td><?= $p['jam']; ?></td>
                                 <td><?= $p['guru_pengampuh']; ?></td>
                                 <td><?= $p['lab']; ?></td>
-                                <td><?= $p['kondisi_awal_pembelajaran']; ?></td>
-                                <td><?= $p['kondisi_saat_pembelajaran']; ?></td>
-                                <td><?= $p['kondisi_akhir_pembelajaran']; ?></td>
+                                <td><?= $p['materi']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md text-left">
-                <p class="font-weigt-bold">Waka Sarpras & Ketenagaan</p>
-                <br>
-                <br>
-                <h6>Ismail S.pdi</h6>
-            </div>
-            <div class="col-md text-right">
-                <p class="font-weigt-bold">Toolman Laboratorium</p>
-                <br>
-                <br>
-                <h6><?= $user['nama']; ?></h6>
             </div>
         </div>
     </div>

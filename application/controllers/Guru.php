@@ -32,6 +32,15 @@ class Guru extends CI_Controller
     {
         $data['judul'] = 'Lab TKJ SMK Astrindo 75';
         $data['sidebar'] = 'Form Tambah Pemakaian Lab';
+        $data['hari'] = [
+            'Minggu',
+            'Senin',
+            'Selasa',
+            'Rabu',
+            'Kamis',
+            'Jumat',
+            'Sabtu'
+        ];
         $data['kelas'] = [
             'X TKJ 1', 'X TKJ 2', 'X TKJ 3',
             'XI TKJ 1',
@@ -43,8 +52,11 @@ class Guru extends CI_Controller
             'Ketiga'
         ];
         $data['user'] = $this->Guru_model->getGuru();
-        $this->form_validation->set_rules('hari', 'Hari/Tanggal', 'required|trim', [
-            'required' => 'Hari/Tanggal harus diisi'
+        $this->form_validation->set_rules('hari', 'Hari', 'required|trim', [
+            'required' => 'Hari harus diisi'
+        ]);
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim', [
+            'required' => 'Tanggal harus diisi'
         ]);
         $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim', [
             'required' => 'Kelas harus diisi'
@@ -70,6 +82,66 @@ class Guru extends CI_Controller
         } else {
             $this->Guru_model->TambahPemakaianLab();
         }
+    }
+    public function ubah_pemakaian($id)
+    {
+        $data['judul'] = 'Lab TKJ SMK Astrindo 75';
+        $data['pemakai'] = $this->Guru_model->getLabById($id);
+        $data['sidebar'] = 'Form Ubah Pemakaian Lab';
+        $data['hari'] = [
+            'Minggu',
+            'Senin',
+            'Selasa',
+            'Rabu',
+            'Kamis',
+            'Jumat',
+            'Sabtu'
+        ];
+        $data['kelas'] = [
+            'X TKJ 1', 'X TKJ 2', 'X TKJ 3',
+            'XI TKJ 1',
+            'XII TKJ 1', 'XII TKJ 2'
+        ];
+        $data['jam'] = [
+            'Pertama',
+            'Kedua',
+            'Ketiga'
+        ];
+        $data['user'] = $this->Guru_model->getGuru();
+        $this->form_validation->set_rules('hari', 'Hari', 'required|trim', [
+            'required' => 'Hari harus diisi'
+        ]);
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required|trim', [
+            'required' => 'Tanggal harus diisi'
+        ]);
+        $this->form_validation->set_rules('kelas', 'Kelas', 'required|trim', [
+            'required' => 'Kelas harus diisi'
+        ]);
+        $this->form_validation->set_rules('jam', 'Jam', 'required|trim', [
+            'required' => 'Jam harus diisi'
+        ]);
+        $this->form_validation->set_rules('guru_pengampuh', 'Guru Pengampuh', 'required|trim', [
+            'required' => 'Guru Pengampuh harus diisi'
+        ]);
+        $this->form_validation->set_rules('lab', 'Lab', 'required|trim', [
+            'required' => 'Lab harus diisi'
+        ]);
+        $this->form_validation->set_rules('materi', 'Materi', 'required|trim', [
+            'required' => 'Materi harus diisi'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('lab/ubah_pemakai', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Guru_model->UbahPemakaianLab($id);
+        }
+    }
+    public function hapus_pemakaian($id)
+    {
+        $this->Guru_model->HapusPemakaianLab($id);
     }
 
     public function print_pakai()

@@ -9,7 +9,7 @@
     <div class="row my-3 mx-auto">
         <div class="col-md">
             <div class="table">
-                <table class="table-bordered">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">Hari</th>
